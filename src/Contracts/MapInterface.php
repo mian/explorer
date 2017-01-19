@@ -4,7 +4,7 @@ namespace MianMohammad\Explorer\Contracts;
 /**
  * Interface MapInterface
  *
- * @package AutoOne\Service
+ * @package MianMohammad\Explorer\Contracts
  * @author  Mian Muahmmad <mian.muahmmad@tajawal.com>
  *
  */

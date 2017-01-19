@@ -4,7 +4,7 @@ namespace MianMohammad\Explorer\Contracts;
 /**
  * Interface SpotInterface
  *
- * @package AutoOne\Entity
+ * @package MianMohammad\Explorer\Contracts
  * @author  Mian Muahmmad <mian.muahmmad@tajawal.com>
  *
  */
