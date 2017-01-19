@@ -1,14 +1,14 @@
 <?php
-namespace AutoOne\Service;
+namespace MianMohammad\Explorer\Contracts;
 
 /**
- * Interface ReaderInterface
+ * Interface SpotInterface
  *
  * @package AutoOne\Entity
  * @author  Mian Muahmmad <mian.muahmmad@tajawal.com>
  *
  */
-interface ReaderInterface
+interface SpotInterface
 {
 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace AutoOne\Entity;
+namespace MianMohammad\Explorer\Entities;
 
 /**
  * Class Map

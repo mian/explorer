@@ -1,7 +1,7 @@
 {
-  "name": "git@gitlab.com:mianmohammad/game",
-  "description": "Game Project CLI",
-  "license": "proprietary",
+  "name": "mianmohammad/explorer",
+  "description": "A console game where player has to explore and find the way to reach the destination while collecting stuff along the way",
+  "license": "MIT",
   "type": "project",
   "require": {
     "php": ">=7.0"
@@ -12,19 +12,12 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "app/",
-      "Core\\": "app/Core/"
+      "MianMuhammad\\Explorer\\": "src/"
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests"
+      "MianMuhammad\\Tests\\": "tests/"
     }
-  },
-  "config": {
-    "discard-changes": true,
-    "optimize-autoloader": true
   }
 }

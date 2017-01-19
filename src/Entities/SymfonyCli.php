@@ -1,12 +1,12 @@
 <?php
-namespace AutoOne\Entity;
+namespace MianMohammad\Explorer\Entities;
 
 /**
  * Class Console
  *
  * @package AutoOne\Entity
  */
-class Console
+class SymfonyCli
 {
 
 }

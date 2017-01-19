@@ -1,14 +1,15 @@
 <?php
-namespace AutoOne\Service;
+
+namespace MianMohammad\Explorer\Contracts;
 
 /**
- * Interface ConsoleInterface
+ * Interface PlayerInterface
  *
  * @package AutoOne\Service
  * @author  Mian Muahmmad <mian.muahmmad@tajawal.com>
  *
  */
-Interface ConsoleInterface
+interface PlayerInterface
 {
 
 }
