@@ -1,14 +1,38 @@
 <?php
-namespace MianMohammad\Explorer\Contracts;
+namespace MianMuhammad\Explorer\Contracts;
 
 /**
  * Interface ConsoleInterface
  *
- * @package MianMohammad\Explorer\Contracts
+ * @package MianMuhammad\Explorer\Contracts
  * @author  Mian Muahmmad <mian.muahmmad@tajawal.com>
  *
  */
-Interface ConsoleInterface
+interface ConsoleInterface
 {
+    /**
+     * @param $message
+     *
+     * @return void
+     */
+    public function print($message);
 
+    /**
+     * @param $message
+     *
+     * @return void
+     */
+    public function heading($message);
+
+    /**
+     * @param $question
+     *
+     * @return mixed
+     */
+    public function getInput($question);
+
+    /**
+     * @return void
+     */
+    public function clear();
 }
