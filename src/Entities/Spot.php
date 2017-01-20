@@ -2,6 +2,7 @@
 namespace MianMuhammad\Explorer\Entities;
 
 use MianMuhammad\Explorer\Contracts\SpotInterface;
+use MianMuhammad\Explorer\Exceptions\InvalidDirectionException;
 
 /**
  * Class Spot
@@ -18,6 +19,12 @@ class Spot implements SpotInterface
 
     /** @var  string */
     protected $hint;
+
+    /** @var  string */
+    protected $alias;
+
+    /** @var  bool */
+    protected $isExit;
 
     /**
      * Spot constructor.
@@ -39,7 +46,11 @@ class Spot implements SpotInterface
      */
     public function populateSpot(array $detail)
     {
-        // TODO : Populate the current object
+        $this->alias       = $detail['alias'];
+        $this->description = $detail['description'];
+        $this->hint        = $detail['hint'];
+        $this->exits       = $detail['exits'];
+        $this->isExit      = !empty($detail['isExitSpot']);
     }
 
     /**
@@ -59,6 +70,16 @@ class Spot implements SpotInterface
     }
 
     /**
+     *
+     * @return string
+     *
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+
+    /**
      * @return array
      */
     public function getAvailableDirections(): array
@@ -74,5 +95,31 @@ class Spot implements SpotInterface
     public function isValidDirection(string $direction): bool
     {
         return !empty($this->exits[$direction]);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isExit(): bool
+    {
+        return $this->isExit;
+    }
+
+
+    /**
+     * @param $direction
+     *
+     * @return string
+     * @throws \MianMuhammad\Explorer\Exceptions\InvalidDirectionException
+     */
+    public function getSpotAtDirection($direction): string
+    {
+        $direction = trim($direction);
+
+        if (empty($this->exits[$direction])) {
+            throw new InvalidDirectionException('Invalid direction ' . $direction);
+        }
+
+        return $this->exits[$direction];
     }
 }

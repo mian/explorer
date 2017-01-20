@@ -32,18 +32,4 @@ interface MapInterface
      * @return SpotInterface
      */
     public function advanceToDirection(string $direction): SpotInterface;
-
-    /**
-     * @param $direction
-     *
-     * @return \MianMuhammad\Explorer\Contracts\SpotInterface
-     */
-    public function getSpotAtDirection($direction): SpotInterface;
-
-    /**
-     * @param $direction
-     *
-     * @return bool
-     */
-    public function isSpotAvailable($direction): bool;
 }

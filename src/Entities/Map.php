@@ -32,12 +32,13 @@ class Map implements MapInterface
     {
         $spots = $mapDetail['spots'] ?? [];
 
-        foreach ($spots as $spotKey => $spotDetail) {
-            $this->spots[$spotKey] = new Spot($spotDetail);
+        // Get the spots and set the array of spots
+        foreach ($spots as $spotName => $spotDetail) {
+            $this->spots[$spotName] = new Spot($spotDetail);
         }
 
-        // Get the spots and set the array of spots
         // Set the currentSpot to be the first spot
+        $this->currentSpot = reset($this->spots);
     }
 
     /**
@@ -57,39 +58,10 @@ class Map implements MapInterface
      */
     public function advanceToDirection(string $direction): SpotInterface
     {
-        $directions = $this->currentSpot->getAvailableDirections();
-        if (!in_array($direction, $directions) || !$this->isSpotAvailable($direction)) {
-            throw new InvalidDirectionException('Invalid direction ' . $direction);
-        }
+        $spotName = $this->currentSpot->getSpotAtDirection($direction);
 
-        $this->currentSpot = $this->getSpotAtDirection($direction);
+        $this->currentSpot = $this->spots[$spotName];
 
         return $this->currentSpot;
-    }
-
-    /**
-     * @param $direction
-     *
-     * @return \MianMuhammad\Explorer\Contracts\SpotInterface
-     */
-    public function getSpotAtDirection($direction): SpotInterface
-    {
-        $spotKey = $this->spots[$direction];
-
-        if (empty($this->spots[$spotKey])) {
-            // Throw
-        }
-
-        return $this->spots[$spotKey];
-    }
-
-    /**
-     * @param $direction
-     *
-     * @return bool
-     */
-    public function isSpotAvailable($direction): bool
-    {
-        return !empty($this->currentSpot[$direction]);
     }
 }

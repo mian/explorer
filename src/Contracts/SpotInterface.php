@@ -31,4 +31,21 @@ interface SpotInterface
      * @return string
      */
     public function getHint();
+
+    /** @return string */
+    public function getAlias();
+
+    /**
+     * DESC
+     *
+     * @return bool
+     */
+    public function isExit(): bool;
+
+    /**
+     * @param $direction
+     *
+     * @return string
+     */
+    public function getSpotAtDirection($direction): string;
 }
