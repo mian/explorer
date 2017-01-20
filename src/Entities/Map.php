@@ -12,7 +12,7 @@ use MianMuhammad\Explorer\Exceptions\InvalidDirectionException;
  */
 class Map implements MapInterface
 {
-    /** @var  SpotInterface[] */
+    /** @var  array Associative array of SpotInterface[] */
     protected $spots;
 
     /** @var SpotInterface */
@@ -33,7 +33,7 @@ class Map implements MapInterface
         $spots = $mapDetail['spots'] ?? [];
 
         foreach ($spots as $spotKey => $spotDetail) {
-
+            $this->spots[$spotKey] = new Spot($spotDetail);
         }
 
         // Get the spots and set the array of spots
@@ -74,7 +74,13 @@ class Map implements MapInterface
      */
     public function getSpotAtDirection($direction): SpotInterface
     {
-        return $this->spots[$direction];
+        $spotKey = $this->spots[$direction];
+
+        if (empty($this->spots[$spotKey])) {
+            // Throw
+        }
+
+        return $this->spots[$spotKey];
     }
 
     /**
