@@ -19,6 +19,9 @@ class Explorer
     /** @var \MianMuhammad\Explorer\Contracts\MapInterface */
     protected $map;
 
+    protected $validInputs = ['north', 'south', 'east', 'west', 'exit'];
+    protected $exitList    = ['save', 'exit'];
+
     /**
      * Explorer constructor.
      *
@@ -33,11 +36,6 @@ class Explorer
 
     public function start()
     {
-        if ($this->shouldRestore()) {
-            // Restore the game
-            // Handle the case to not ask for the user details if it is to be restored
-        }
-
         $this->console->clear();
 
         $this->console->heading('Explorer - Explore and reach the destination');
@@ -59,11 +57,11 @@ class Explorer
             $this->console->print($spot->getDescription());
 
             do {
-                $direction    = $this->console->getInput('What is your next direction?');
+                $direction    = trim($this->console->getInput('What is your next direction?'));
                 $isValidInput = $this->isValidInput($direction);
             } while (!$isValidInput);
 
-            if (!$this->isDirection()) {
+            if (!$this->isDirection($direction)) {
                 $this->performInputAction($direction);
 
                 continue;
@@ -78,32 +76,47 @@ class Explorer
 
         }
 
-        $this->console->print('Congrats! You have successfuly reached the exit');
+        $this->console->print('Congrats! You have successfully reached the exit');
     }
 
-    public function shouldRestore()
-    {
-        // Check if data file exists?
-        // if not return false;
-        // if yes, ask for user input if they want to restore or not
-        // true
-
-        return false;
-    }
-
+    /**
+     *
+     * @param $input
+     *
+     */
     public function performInputAction($input)
     {
-        // TODO
+        if ($input == 'exit') {
+            $this->console->print('oops! You have gave up to explore the new world of adventure');
+            usleep(1000 * 1000);
+            $this->console->exitCommand();
+        }
     }
 
-    public function isDirection()
+    /**
+     *
+     * @param $input
+     *
+     * @return bool
+     *
+     */
+    public function isDirection(string $input): bool
     {
-        return true;
+        return !in_array(trim($input), $this->exitList);
     }
 
-    public function isValidInput($input): bool
+    /**
+     * DESC
+     *
+     * @param $input
+     *
+     * @return bool
+     *
+     * @author Mian Muahmmad <mian.muahmmad@tajawal.com>
+     *
+     */
+    public function isValidInput(string $input): bool
     {
-        // TODO
-        return true;
+        return in_array($input, $this->validInputs);
     }
 }

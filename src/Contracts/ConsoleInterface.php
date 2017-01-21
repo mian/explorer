@@ -35,4 +35,9 @@ interface ConsoleInterface
      * @return void
      */
     public function clear();
+
+    /**
+     * @return void
+     */
+    public function exitCommand();
 }

@@ -42,8 +42,21 @@ class SymfonyCli implements ConsoleInterface
         return fgets(STDIN);
     }
 
+    /**
+     *
+     * @return void
+     *
+     */
     public function clear()
     {
         echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J'; // ^[H^[J
+    }
+
+    /**
+     * @return void
+     */
+    public function exitCommand()
+    {
+        die();
     }
 }
