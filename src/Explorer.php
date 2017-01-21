@@ -39,11 +39,11 @@ class Explorer
         $this->console->clear();
 
         $this->console->heading('Explorer - Explore and reach the destination');
-        $this->console->print('======================');
+        $this->console->print('======================','comment');
 
         $name = $this->console->getInput('What is your name?');
 
-        $this->console->print('Your name is ' . $name);
+        $this->console->print('Your name is ' . $name,'info');
 
         $spot = $this->map->getCurrentSpot();
 
@@ -51,8 +51,8 @@ class Explorer
         while (!$spot->isExit()) {
             $this->console->clear();
 
-            $this->console->print($spot->getAlias());
-            $this->console->print('======================');
+            $this->console->print($spot->getAlias(),'info');
+            $this->console->print('======================','comment');
 
             $this->console->print($spot->getDescription());
 
@@ -70,13 +70,13 @@ class Explorer
             try {
                 $spot = $this->map->advanceToDirection($direction);
             } catch (Exception $e) {
-                $this->console->print('You cant go that way');
+                $this->console->print('You cant go that way','error');
                 usleep(1000 * 1000);
             }
 
         }
 
-        $this->console->print('Congrats! You have successfully reached the exit');
+        $this->console->print('Congrats! You have successfully reached the exit','info');
     }
 
     /**
@@ -87,7 +87,7 @@ class Explorer
     public function performInputAction($input)
     {
         if ($input == 'exit') {
-            $this->console->print('oops! You have gave up to explore the new world of adventure');
+            $this->console->print('oops! You have gave up to explore the new world of adventure','error');
             usleep(1000 * 1000);
             $this->console->exitCommand();
         }

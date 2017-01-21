@@ -11,11 +11,12 @@ namespace MianMuhammad\Explorer\Contracts;
 interface ConsoleInterface
 {
     /**
-     * @param $message
+     * @param string $message
+     * @param string $type
      *
      * @return void
      */
-    public function print($message);
+    public function print($message, $type='');
 
     /**
      * @param $message

@@ -2,6 +2,8 @@
 namespace MianMuhammad\Explorer\Entities;
 
 use MianMuhammad\Explorer\Contracts\ConsoleInterface;
+use Symfony\Component\Console\Formatter\OutputFormatter;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
  * Class Console
@@ -11,23 +13,35 @@ use MianMuhammad\Explorer\Contracts\ConsoleInterface;
 class SymfonyCli implements ConsoleInterface
 {
     /**
-     * @param $message
+     * @param  string $message
      *
-     * @return void
+     * @param string  $type
      */
-    public function print($message)
+    public function print($message, $type = '')
     {
-        echo $message . PHP_EOL;
+        $output = new ConsoleOutput();
+        $output->setFormatter(new OutputFormatter(true));
+
+        if (empty($type)) {
+            $output->writeln($message);
+        } else {
+
+            $output->writeln(" <$type>$message</$type>");
+        }
+
     }
 
     /**
-     * @param $message
+     * @param string $message
      *
      * @return void
      */
-    public function heading($message)
+    public function heading( $message)
     {
-        echo $message . PHP_EOL;
+        $output = new ConsoleOutput();
+        $output->setFormatter(new OutputFormatter(true));
+
+        $output->writeln(" <info>$message</info>");
     }
 
     /**
