@@ -1,0 +1,23 @@
+{
+  "name": "mianMuhammad/explorer",
+  "description": "A console game where player has to explore and find the way to reach the destination while collecting stuff along the way",
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=7.0",
+    "symfony/console": "~2.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "MianMuhammad\\Explorer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MianMuhammad\\Tests\\": "tests/"
+    }
+  }
+}
