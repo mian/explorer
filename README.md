@@ -28,13 +28,14 @@ php index.php
 
 once you start the explorer it will start up with the welcome screen
 
-(http://imgur.com/a/r8BiW)
+![Explorer Start Screen](http://imgur.com/a/r8BiW)
 
 Enter your name here
 
 Then the explorer will start and you will be at the first gate/spot
 
-(http://imgur.com/a/ohfVy)
+![Explorer First Spot](http://imgur.com/a/ohfVy)
+
 
 From any gate you can go to the directions or you can give up and exit the game if you don't
 want to explore and win
@@ -54,7 +55,7 @@ exit
 
 Please check the video for the demo 
 
-(http://www.giphy.com/gifs/26xBK4F2LPY27XJPq)
+![Explorer Gif Demo](http://www.giphy.com/gifs/26xBK4F2LPY27XJPq "Explorer Gif Demo")
 
 ## Details
 
