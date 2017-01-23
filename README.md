@@ -54,7 +54,7 @@ exit
 
 Please check the video for the demo 
 
-(http://www.giphy.com/gifs/26xBHMYgVvbnjxKQE)
+(http://www.giphy.com/gifs/26xBK4F2LPY27XJPq)
 
 ## Details
 
